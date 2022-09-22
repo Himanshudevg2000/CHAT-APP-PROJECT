@@ -21,6 +21,7 @@ signbtn.addEventListener('click', (e) => {
       .then(response => {
          // console.log(response)
          alert('Signed Up Successfully');
+         window.location = 'login.html'
       })
       .catch(err => {
          // alert(err)

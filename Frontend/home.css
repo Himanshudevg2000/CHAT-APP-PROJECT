@@ -1,0 +1,44 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+header{
+    text-align: center;
+    padding: 10px;
+    background-color: black;
+    color: white;
+}
+
+main{
+    min-height: 80vh;
+    justify-content: center;
+    text-align: center;
+    margin: 10px 250px;
+}
+
+.send{
+    position: relative;
+    text-align: center;
+    background-color: steelblue;
+    padding: 20px;
+}
+
+#msginput{
+    border: 2px solid black;
+    border-radius: 5px;
+    width: 500px;
+    text-align: center;
+    padding: 4px;
+}
+
+#msgbtn{
+    border: 2px solid black;
+    border-radius: 7px;
+    padding: 0.2rem;
+}
+
+#msgbtn:hover{
+    font-weight: bolder;
+    cursor: pointer;
+}

@@ -17,6 +17,7 @@ loginbtn.addEventListener('click', (e) => {
             console.log(response)
             alert(response.data.message);
             localStorage.setItem('token',response.data.token);
+            window.location = 'HomePage.html'
             console.log(response)
     })
     .catch(err => {
