@@ -1,0 +1,107 @@
+*{
+    margin: 0px;
+    padding: 0px;
+}
+
+body {
+    background-image: url(https://images.unsplash.com/photo-1508615039623-a25605d2b022?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80);
+    background-size: cover;
+}
+
+header {
+    justify-content: center;
+    text-align: center;
+}
+
+h1 {
+    display: block;
+    font-size: 2em;
+    margin: 30px;
+    font-weight: bold;
+}
+
+.forget{
+    padding: 10px;
+}
+
+.b{
+    padding: 10px;
+}
+
+.form {
+    background: none;
+    margin: 100px 480px;
+    padding: 20px;
+    border-radius: 30px;
+    border: 2px solid black;
+    border-image: initial;
+}
+
+.form h1 {
+    text-align: center;
+    color: black;
+}
+
+.details {
+    background: none;
+    padding: 15px;
+    border-bottom: 2px solid black;
+}
+
+.details input {
+    font-size: 18px;
+    height: 10px;
+    color: white;
+    width: 550px;
+    margin: 8px 0px;
+    border: none;
+    outline: none;
+    padding: 5px 0px;
+    background: none;
+}
+
+.SignUPbtn {
+    text-align: center;
+    padding: 15px;
+}
+
+#signbtn {
+    justify-content: center;
+    background: none;
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 0.4rem;
+}
+#loginbtn {
+    justify-content: center;
+    background: none;
+    border: 2px solid black;
+    border-radius: 8px;
+    padding: 0.4rem;
+}
+
+::placeholder{
+    color: white;
+}
+
+.details:hover{
+    border: 2px solid black;
+    border-radius: 15px;
+}
+
+#signbtn:hover{
+    background-color: gray;
+    font-weight: bolder;
+    color: white;
+}
+
+#loginbtn:hover{
+    background-color: gray;
+    font-weight: bolder;
+    color: white;
+}
+
+a{
+    color: gray;
+    text-decoration: none;
+}
