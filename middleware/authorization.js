@@ -6,7 +6,7 @@ exports.authenticate = (req, res, next) => {
     
     try{
 
-        const token = req.header('authorization');
+        const token = req.header('Authorization');
         console.log(token);
         
         const user = jwt.verify(token, 'CHATAPP')

@@ -42,3 +42,25 @@ main{
     font-weight: bolder;
     cursor: pointer;
 }
+
+#mess{
+    background-color: lightgray;
+}
+
+#logout{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    border: 2px solid white;
+    border-radius: 5px;
+    font-weight: bolder;
+}
+
+#logout:hover{
+    cursor: pointer;
+    font-weight:800;
+}
+
+h2{
+    padding: 10px;
+}
