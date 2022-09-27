@@ -1,0 +1,27 @@
+#showgrp2{
+    padding: 15px;
+    margin: 10px 30px;
+    background-color: grey;
+    border: 2px solid black;
+    color: white;
+}
+
+#xbtn{
+    padding: 0.1rem;
+    background-color: white;
+    color: red;
+    border-radius: 6px;
+}
+
+#showusers{
+    padding: 0.2rem;
+    color: black;
+    background-color: white;
+    border-radius: 8px;
+}
+
+#msgbtn{
+    border: 2px solid;
+    border-radius: 8px;
+    background-color: whitesmoke;
+}

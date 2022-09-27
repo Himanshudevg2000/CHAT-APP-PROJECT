@@ -7,6 +7,8 @@ const bodyParser = require('body-parser')
 const sequelize = require("./models/database");
 const User = require("./models/user")
 const Message = require("./models/messages")
+const Group = require("./models/group")
+const Usergroup = require("./models/usergroup")
 
 const app = express()
 
@@ -21,6 +23,15 @@ app.use('/chatroutes',chatroute)
 
 User.hasMany(Message)
 Message.belongsTo(User)
+
+Group.hasMany(Message )
+Message.belongsTo(Group)
+
+User.hasMany(Usergroup)
+Group.hasMany(Usergroup)
+
+Usergroup.belongsTo(User)
+Usergroup.belongsTo(Group)
 
 sequelize
     .sync()

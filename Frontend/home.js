@@ -8,22 +8,27 @@ window.addEventListener('DOMContentLoaded', (e) => {
         .then(result => {
             console.log(result.data.result[0].name)
             showuser(result.data.result[0].name)
-            // showuser(result.data.result[1].name)
+    //         // showuser(result.data.result[1].name)
         })
 
-    axios.get("http://localhost:9000/chatroutes/getmessages", {headers: {"Authorization": token}})
-        .then(result => {
-            for(let i=0; i<result.data.result.length; i++){
-                console.log(result.data.result[i].messages)
-                showmessage( result.data.result[i].userId,result.data.result[i].messages)
-            }
-
-        })
+        // setInterval(() => {
+            
+            axios.get("http://localhost:9000/chatroutes/getmessages", {headers: {"Authorization": token}})
+            .then(result => {
+                // console.log(result)
+                // console.log(result.data.result[1].user.name)
+                for(let i=1; i<result.data.result.length; i++){
+                    console.log(result.data.result[i].messages)
+                    showmessage( result.data.result[i].user.name,result.data.result[i].messages)
+                    localStorage.setItem('messages',result.data.result[i].messages)
+                }
+            })
+        // }, 1000);
 })
 
 function showmessage(res, result){
     const showmsg = document.getElementById('show')
-    showmsg.innerHTML+= `<h3>${res} - ${result} </h3>`
+    showmsg.innerHTML += `<h3>${res} - ${result} </h3>`
 }
 
 
@@ -40,24 +45,24 @@ logout.addEventListener('click', () => {
 })
 
 
-// const sendbtn = document.getElementById('msgbtn')
+const sendbtn = document.getElementById('msgbtn')
 
-// sendbtn.addEventListener('click',(e)=> {
-//     const messages = document.getElementById('msginput').value
+sendbtn.addEventListener('click',(e)=> {
+    const messages = document.getElementById('msginput').value
 
-//     const msg = {
-//         messages:messages
-//     }
+    const msg = {
+        messages:messages
+    }
 
-//     const token = localStorage.getItem('token');
-//     axios.post("http://localhost:9000/chatroutes/messages", msg, { headers: {"Authorization" : token} })
-//         .then(result => {
+    const token = localStorage.getItem('token');
+    axios.post("http://localhost:9000/chatroutes/messages", msg, { headers: {"Authorization" : token} })
+        .then(result => {
             
-//             console.log(result)
-//             console.log("message sent")
-//         })
-//         .catch(err => {
-//             console.log('Oh no')
-//             console.log(err)
-//         })
-// })
+            console.log(result)
+            console.log("message sent")
+        })
+        .catch(err => {
+            console.log('Oh no')
+            console.log(err)
+        })
+})

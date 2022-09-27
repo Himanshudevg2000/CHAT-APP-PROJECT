@@ -16,9 +16,11 @@ loginbtn.addEventListener('click', (e) => {
     .then(response => {
             console.log(response)
             alert(response.data.message);
-            localStorage.setItem('token',response.data.token);
-            window.location = 'HomePage.html'
-            console.log(response)
+            localStorage.setItem('token', response.data.token);
+            localStorage.setItem('user',JSON.stringify( response.data.user))
+            localStorage.setItem('usergroup',JSON.stringify( response.data.usergroup))
+            
+            window.location = 'group.html'
     })
     .catch(err => {
         // alert(err)

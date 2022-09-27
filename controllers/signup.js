@@ -1,6 +1,7 @@
 const User = require('../models/user')
 const bcrypt = require('bcrypt')
 const jwt = require('jsonwebtoken')
+const usergroup =require('../models/usergroup')
 
 function isstringinvalid(string){
     if(string == undefined || string.length === 0){
@@ -57,7 +58,10 @@ exports.login = (req,res) => {
     }
 
     User.findAll({where : {email}})
-        .then(response => {
+        .then(async(response) => {
+            // console.log(response)
+            const userGroup = await usergroup.findAll({where: {userid:response[0].id}})
+            // console.log(usergroup)
             if(response.length > 0){
                 bcrypt.compare(password,response[0].password, (err,result) => {
                     if(err){
@@ -65,8 +69,9 @@ exports.login = (req,res) => {
                     }
                     if(result === true) {
                         const jwttoken = generateAccessToken(response[0].id)
-                        console.log(jwttoken)
-                        res.status(200).json({token: jwttoken, success:true, message:'login Successfully'})
+                        // console.log(jwttoken)
+                        // console.log(response.data.usergroup[0].isadmin)
+                        res.status(200).json({token: jwttoken,usergroup:userGroup,user:response, success:true, message:'login Successfully'})
                     }else{
                         return res.status(400).json({success: false, message:'password is incorrect'})
                     }
@@ -76,6 +81,7 @@ exports.login = (req,res) => {
             }
         })
         .catch(err => {
+            console.log(err)
             res.status(500).json({success:false,message: err})
         })
 }
